@@ -271,6 +271,7 @@ def _download_video(url, output_template):
 
 
 def download_media(items, download_dir, media_type="both",
+                   target_handle=None,          # ← 추가
                    log_fn=print, error_fn=None, cancel_fn=None,
                    progress_fn=None, file_progress_fn=None, preview_fn=None,
                    delay_min=0.5, delay_max=2.0):
@@ -464,5 +465,5 @@ Examples:
         items = fetch_user_gallery(jwt, target_did, max_pages=args.pages)
 
     print(f"Downloading {len(items)} posts → {args.output}")
-    download_media(items, args.output, media_type=args.media)
+    download_media(items, args.output, media_type=args.media, target_handle=target,)
     print("Done.")
