@@ -66,6 +66,7 @@ class DownloadWorker(QThread):
                 items,
                 cfg["output"],
                 media_type=media_map[cfg["media"]],
+                target_handle=target,
                 log_fn=self.log.emit,
                 error_fn=self.error.emit,
                 cancel_fn=lambda: self._stop,
